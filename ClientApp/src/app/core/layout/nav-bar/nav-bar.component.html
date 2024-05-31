@@ -1,0 +1,39 @@
+<div class="sidebar">    
+  <div class="sidebar-content">
+
+    <div class="logo-details">
+      <!-- <i class="bx bxl-c-plus-plus icon"></i> -->
+      <div class="logo_name">Navigator Viewer2.0</div>
+      <i class="bx bx-menu" id="btn" (click)="toggleSidebar();"></i>
+    </div>
+      
+    <div id="search">
+        <li class="top-menu">
+          <i class="menu-icon bx bx-search"></i>
+          <input type="text" placeholder="Search..." />
+          <span class="tooltip">Search</span>
+        </li>          
+    </div>
+
+    <div id="favorites">
+      <li class="top-menu">
+        <a href="#" class="link-content" title="My Favorites">
+          <i class='menu-icon bx bx-book-bookmark' ></i>  
+          <span class="links-name">My Favorites</span>      
+          <span class="tooltip">My Favorites</span>
+        </a>
+
+        <app-favorites></app-favorites>
+      </li>      
+    </div>   
+
+    <app-sub-menu [inputMenu] = "menus"></app-sub-menu>    
+    
+
+  </div>
+
+  <ng-content select="[fnSection]"></ng-content>
+
+</div>
+
+

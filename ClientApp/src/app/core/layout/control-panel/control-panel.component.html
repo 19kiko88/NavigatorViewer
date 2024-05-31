@@ -1,0 +1,32 @@
+<div class="control-panel">
+    <p>
+        <button
+            type="button"
+            class="btn btn-primary"
+            (click)="collapse.toggle()"
+            [attr.aria-expanded]="!isCollapsed"
+            aria-controls="collapseExample"
+        >
+            {{isCollapsed ? '顯示控制面板' : '隱藏控制面板'}}
+        </button>
+
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <div class="card" [style.opacity] = 'opacityValue_' >
+            <div class="card-body">       
+                <div class="row">
+                    <div class="col-4">
+                        <label for="customRange1" class="form-label">透明度調整：</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="range" class="form-range" id="customRange1" [(ngModel)]="opacityValue" min='2' max="10" (change)="onChangeOpacity();">    
+                    </div>
+                </div>                  
+
+                <!-- <ng-content></ng-content> -->
+                <router-outlet></router-outlet> 
+            </div>
+        </div>
+    </div>    
+    
+</div>

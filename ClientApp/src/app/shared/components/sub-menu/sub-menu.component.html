@@ -1,0 +1,36 @@
+<ul class='nav-list'>
+    <li *ngFor="let menu of inputMenu; index as idx" [ngClass]="{        
+        'active': menu.active , 
+        'simple-menu-li':(menu.submenus?.length ?? 0) <= 0 , 
+        'sidebar-dropdown':(menu.submenus?.length ?? 0) > 0 , 
+        'header-menu':menu.type === 'header',
+        'top-menu': menu.level === 1
+        }"
+        [attr.item_idx] = "idx"
+        >
+        
+        <span *ngIf="menu.type === 'header'">{{menu.title}}</span>
+
+        <span class="tooltip">{{menu.title}}</span> 
+    
+        <div class="link-content" style="position: relative;">
+          <a [routerLink]="['/' + menu.routerLink]" (click)="toggleMenu(menu)" title="{{menu.title}}">
+            <i class="menu-icon {{menu.icon}}"></i>
+            <span class="links-name text-ellipsis">{{menu.title}}</span>
+            <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
+          </a>
+          <button *ngIf="(menu.submenus?.length ?? 0) == 0" class="favorite btn btn-link" [ngClass]="{'active-favorite': isInFavoriteList(menu)}"  (click)="toggleFavorite(menu)">
+            <i class="fa fa-xs" [ngClass]="{'fa-heart-o' : !isInFavoriteList(menu), 'fa-heart' : isInFavoriteList(menu)}"></i>
+          </button>         
+        </div>      
+
+        <div class="sidebar-submenu" [@slide]="getState(menu)">
+            <app-sub-menu [inputMenu]="menu.submenus ?? []"></app-sub-menu>
+        </div>
+
+        <div class="sidebar-submenu-close">            
+            <app-sub-menu [inputMenu]="menu.submenus ?? []"></app-sub-menu>
+        </div>
+
+    </li>
+</ul>

@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+@import './app/css/navigator-viewer.scss';
+@import '../node_modules/primeng/resources/themes//lara-light-blue/theme.css';
+@import '../node_modules/primeng/resources/primeng.css';
+@import url('../node_modules/fontawesome-4.7/scss/font-awesome.scss');

@@ -1,0 +1,28 @@
+<div id="favorite_list" class="card">
+    <div class="card-header">                
+        <button type="button" class="close" data-dismiss="card" aria-label="Close" (click)="toggleClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        My Favorites
+      </div>
+    <div class="card-body">
+        <ul class="favorites-list list-group">
+            <li
+                *ngFor="let menu of favoritesList"        
+                class="list-group-item list-group-item-action" 
+                >
+
+                <div class="d-flex justify-content-start link-content">
+                    <button class="p-2 favorite btn"   (click)="toggleFavorite(menu)">
+                        <i class="fa fa-trash"></i>   
+                    </button>
+
+                    <a class="p-2" [routerLink]="['/' + menu.routerLink]" (click)="toggleMenu(menu)">
+                        <span class="text-ellipsis">{{menu.title}}</span>
+                    </a>
+                </div>
+
+            </li>
+        </ul>        
+    </div>
+</div>

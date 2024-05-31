@@ -1,0 +1,19 @@
+.control-panel{
+    position: fixed;
+    //background:#CDCDCD;
+    min-height: 30vh;
+    top: 0;
+    left: 88px;
+    //height: 50%;
+    width: 400px;// - 78px;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+.card {
+    background-color: #DCDCDC;
+
+    .card-body {
+        height: 500px;
+    }    
+}

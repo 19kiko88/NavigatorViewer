@@ -1,0 +1,27 @@
+/*------------------------------default theme---------------------------------*/
+$asus-stand-ui-fff:#fff;
+$asus-stand-ui-181818:#181818;
+$asus-stand-ui-006ce1:#006CE1;
+$asus-stand-ui-cdcdcd:#CDCDCD;
+
+#favorite_list {
+    a {
+        span {
+            color: $asus-stand-ui-181818;
+        }
+    }
+
+    a:hover {
+        span {
+            color: $asus-stand-ui-fff;
+        }
+    }
+
+    .card-body {
+        height: 90%;
+
+        ul {
+            height: 100%;
+        }
+    }    
+}
